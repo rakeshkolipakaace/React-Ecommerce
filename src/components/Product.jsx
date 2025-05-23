@@ -1,15 +1,17 @@
 import React from 'react';
 import { items } from './Data';
 
+import {Link} from 'react-router-dom';
+
 const Product = () => {
   return (
     <div className="container">
       <div className="row">
         {
           items.map((product, index) => (
-            <div className="col-lg-4 my-3 text-center" key={index}>
+            <div key={product.id}className="col-lg-4 col-md-6 my-3 text-center">
               <div className="card" style={{ width: '18rem' }}>
-                <img src={product.imgSrc} className="card-img-top" alt={product.title} />
+                <Link to={`/product/${product.id}`}style={{display:'flex',justifyContent:'center',alignItems:'center'}}><img src={product.imgSrc} className="card-img-top" alt={product.title} /></Link>
                 <div className="card-body">
                   <h5 className="card-title">{product.title}</h5>
                   <p className="card-text">{product.description}</p>
