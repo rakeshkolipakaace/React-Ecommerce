@@ -15,6 +15,19 @@ const Navbar = () => {
 
         </div>
     </header>
+
+    <div className="nav-bar-wrapper">
+        <div className="items">Filter by {"->"}</div>
+        <div className="items">No Filter</div>
+        <div className="items">Mobiles</div>
+        <div className="items">Laptops</div>
+        <div className="items">Tablets</div>
+        <div className="items">{">=2999"}</div>
+        <div className="items">{">=4999"}</div>
+        <div className="items">{">=6999"}</div>
+        <div className="items">{">=8999"}</div>
+        
+    </div>
     
     
     </>
