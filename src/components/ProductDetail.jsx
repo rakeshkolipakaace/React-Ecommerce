@@ -2,13 +2,18 @@ import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { items } from './Data'
 
+import Product from './Product'
+
 
 const ProductDetail = () => {
 
 
-  const {id} = useParams()
+  const {id} = useParams();
 
-  const [product, setproduct] = useState({})
+  const [product, setproduct] = useState({});
+
+
+  const [relatedProducts, setrelatedProducts] = useState([])
 
   useEffect(() => {
     const filteredProduct=items.filter((product)=>{
@@ -16,8 +21,14 @@ const ProductDetail = () => {
     })
 
     setproduct(filteredProduct[0])
+
+    const relatedProducts=items.filter((product)=>{
+      product.category===product.category
+    })
+
+    setrelatedProducts(relatedProducts)
     
-  }, [id])
+  }, [id,product.category])
   
 
   return (
@@ -37,6 +48,10 @@ const ProductDetail = () => {
                   </button>
                   <button className="btn btn-warning">Add To Cart</button>
       </div>
+
+      <h1 className='text-center'>Related Products</h1>
+
+      <Product items={relatedProducts}/>
     </div>
     
     
