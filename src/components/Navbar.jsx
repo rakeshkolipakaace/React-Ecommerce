@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
 
-    <header>
+    <header className='sticky-top'>
         <div className='nav-bar'>
             <Link to={'/'}className='brand'>E-Cart</Link>
             <div className='search-bar'>
