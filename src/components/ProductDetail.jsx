@@ -16,19 +16,15 @@ const ProductDetail = () => {
   const [relatedProducts, setrelatedProducts] = useState([])
 
   useEffect(() => {
-    const filteredProduct=items.filter((product)=>{
-      product.id==id
-    })
+    const filteredProduct = items.filter((p)=> p.id == id);
 
     setproduct(filteredProduct[0])
 
-    const relatedProducts=items.filter((product)=>{
-      product.category===product.category
-    })
+    const relatedProducts = items.filter((p)=> p.category === filteredProduct[0]?.category && p.id != filteredProduct[0]?.id);
 
     setrelatedProducts(relatedProducts)
     
-  }, [id,product.category])
+  }, [id])
   
 
   return (
@@ -37,7 +33,7 @@ const ProductDetail = () => {
 
     <div className="container-con">
       <div className="img">
-        {<img src={product.imgSrc} alt={title} />}
+        {product?.imgSrc && <img src={product.imgSrc} alt={product.title || 'product'} />}
       </div>
       <div  className="text-center">
         
